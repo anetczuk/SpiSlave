@@ -122,11 +122,11 @@ class PinAccessMock(PinAccess):
 #
 class SpiSlaveTest(unittest.TestCase):
     def setUp(self):
-        # Called before the first testfunction is executed
+        # Called before execution of each testfunction
         pass
  
     def tearDown(self):
-        # Called after the last testfunction was executed
+        # Called after execution of each testfunction
         pass
 
     def test_default(self):
@@ -169,14 +169,13 @@ class SpiSlaveTest(unittest.TestCase):
 #
 class SSProtocolTest(unittest.TestCase):
     def setUp(self):
-        # Called before the first testfunction is executed
+        # Called before execution of each testfunction
         self.dataAccess = PinAccessMock()
         self.device = SlaveDeviceMock()
         self.protocol = SSProtocol( self.dataAccess, self.device )
-        pass
  
     def tearDown(self):
-        # Called after the last testfunction was executed
+        # Called after execution of each testfunction
         pass
 
     def test_sendBit(self):
@@ -231,14 +230,13 @@ class SSProtocolTest(unittest.TestCase):
 #
 class NoSSProtocolTest(unittest.TestCase):
     def setUp(self):
-        # Called before the first testfunction is executed
+        # Called before execution of each testfunction
         self.dataAccess = PinAccessMock()
         self.device = SlaveDeviceMock()
         self.protocol = NoSSProtocol( self.dataAccess, self.device )
-        pass
  
     def tearDown(self):
-        # Called after the last testfunction was executed
+        # Called after execution of each testfunction
         pass
 
     def test_clock_tick_low(self):
@@ -279,11 +277,10 @@ class NoSSProtocolTest(unittest.TestCase):
 #
 class TransmissionTest(unittest.TestCase):
     def setUp(self):
-        # Called before the first testfunction is executed
+        # Called before execution of each testfunction
         self.dataAccess = PinAccessMock()
         self.device = SpiSlave()
         self.protocol = SSProtocol( self.dataAccess, self.device )
-        pass
         
     def test_transmission_1(self):        
         self.device.sendBuffer = 1
