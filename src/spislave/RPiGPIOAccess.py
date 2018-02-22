@@ -109,3 +109,10 @@ class RPiGPIOAccess(PinAccess):
             return GPIO.input(PIN_SS)
         except:
             self.bucket.put(sys.exc_info())
+
+    
+    @classmethod
+    def cleanup(cls):
+        GPIO.cleanup()
+    
+    

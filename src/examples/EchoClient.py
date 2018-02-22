@@ -29,7 +29,6 @@ from spislave.Protocol import SSProtocol
 from spislave.Protocol import NoSSProtocol
 from spislave.RPiGPIOAccess import RPiGPIOAccess
 
-import RPi.GPIO as GPIO
 import Queue
 import traceback
 
@@ -146,5 +145,5 @@ if __name__ == "__main__":
 
     finally:
         print "Cleaning up"
-        GPIO.cleanup()
+        RPiGPIOAccess.cleanup()
 
