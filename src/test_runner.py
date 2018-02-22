@@ -121,7 +121,7 @@ if __name__ == '__main__':
         if coverageData != None:
             ## convert results to html
             tmprootdir=tempfile.gettempdir()
-            revCrcTmpDir=tmprootdir+"/revcrc"
+            revCrcTmpDir=tmprootdir+"/spislave"
             if not os.path.exists(revCrcTmpDir):
                 os.makedirs(revCrcTmpDir)
             htmlcovdir=revCrcTmpDir+"/htmlcov"
