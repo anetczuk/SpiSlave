@@ -25,7 +25,12 @@
 from spislave.PinAccess import PinAccess
 
 import sys, Queue
-import RPi.GPIO as GPIO
+
+try:
+    import RPi.GPIO as GPIO
+except ImportError:
+    print "Error: RPi.GPIO module not installed, try 'sudo aptitude install python-rpi.gpio' or 'sudo aptitude install python3-rpi.gpio'\n"
+    raise
 
 
 

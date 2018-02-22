@@ -40,8 +40,11 @@ if __name__ != '__main__':
     exit(1);
 
 
-
-import RPi.GPIO as GPIO
+try:
+    import RPi.GPIO as GPIO
+except ImportError:
+    print "Error: RPi.GPIO module not installed, try 'sudo aptitude install python-rpi.gpio' or 'sudo aptitude install python3-rpi.gpio'\n"
+    raise
 
 import sys, traceback
 import Queue
