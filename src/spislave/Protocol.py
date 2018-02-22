@@ -21,7 +21,8 @@
 # SOFTWARE.
 #
 
-from spislave import PinAccess, SpiDevice
+from spislave.PinAccess import PinAccess
+from spislave.SpiDevice import SpiDevice
 
 
 
@@ -45,8 +46,6 @@ class SSProtocol(object):
         self.dataAccess.registerForSS( self.slave_tick )
         self.clockCouter = 0
         self.selected = False
-        
-    def __del__(self): pass
 
     def sendBit(self):
         if self.clockCouter <= 0:
@@ -104,8 +103,6 @@ class NoSSProtocol(object):
         self.startSequence = None
         self.sequenceBuffer = 0
         self.receiveCounter = 0
-        
-    def __del__(self): pass
 
     def waitForSequence(self, sequence):
         self.startSequence = sequence
