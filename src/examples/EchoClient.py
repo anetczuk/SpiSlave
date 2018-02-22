@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 # MIT License
 # 
 # Copyright (c) 2017 Arkadiusz Netczuk <dev.arnet@gmail.com>
