@@ -29,7 +29,7 @@ import sys, Queue
 try:
     import RPi.GPIO as GPIO
 except ImportError:
-    print "Error: RPi.GPIO module not installed, try 'sudo aptitude install python-rpi.gpio' or 'sudo aptitude install python3-rpi.gpio'\n"
+    ##print "Error: RPi.GPIO module not installed, try 'sudo aptitude install python-rpi.gpio' or 'sudo aptitude install python3-rpi.gpio'\n"
     raise
 
 
@@ -60,9 +60,7 @@ class RPiGPIOAccess(PinAccess):
         GPIO.add_event_detect(PIN_SCK, GPIO.BOTH, callback=self.clock_tick)
         GPIO.add_event_detect(PIN_SS, GPIO.BOTH, callback=self.slave_tick)
         self.enabled = False
-    
-    def __del__(self): pass
-    
+
     def start(self): 
         self.enabled = True
     
