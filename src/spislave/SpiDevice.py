@@ -31,10 +31,7 @@
 # Upper layer -- above SPI protocol and wiring
 #
 class SpiDevice(object):
-    def __init__(self): pass
-        
-    def __del__(self): pass
-        
+
     def activate(self):
         ## override
         pass
@@ -58,14 +55,11 @@ class SpiDevice(object):
 #
 class SpiSlave(SpiDevice):
     def __init__(self):
-        SpiDevice.__init__(self)
         self.receiveBuffer = 0
         self.sendBuffer = 0
         self.loadBitIndex = 0
         
-    def __del__(self): pass
-
-    ## called before start of transmission (slave pin rised)
+    ## called before start of transmission (slave pin raised)
     def prepareData(self):
         ## override
         pass

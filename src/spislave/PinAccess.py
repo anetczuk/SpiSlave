@@ -27,9 +27,6 @@
 ## Abstract class for pin access.
 ##
 class PinAccess:    
-    def __init__(self): pass
-    
-    def __del__(self): pass
 
     def start(self):
         ## override

@@ -53,7 +53,6 @@ GPIO.setup(PIN_SS, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)	    ## set inner pull-do
 #
 class RPiGPIOAccess(PinAccess):
     def __init__(self):
-        PinAccess.__init__(self)    
         self.sckCallback = None
         self.ssCallback = None
         self.bucket = Queue.Queue()
