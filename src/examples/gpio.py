@@ -189,8 +189,8 @@ class SpiSlave(object):
         except:
             exceptionQueue.put(sys.exc_info())
 
-        
-        
+
+
 ## ==================================================================
 
 
