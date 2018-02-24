@@ -27,7 +27,7 @@ import argparse
 from spislave.SpiDevice import SpiSlave
 from spislave.protocol import SSProtocol
 from spislave.protocol import NoSSProtocol
-from spislave.RPiGPIOAccess import RPiGPIOAccess
+from spislave.rpigpioaccess import RPiGPIOAccess
 
 import Queue
 import traceback
@@ -40,13 +40,10 @@ import traceback
 class EchoSlaveNoSS(SpiSlave):
     def __init__(self):
         SpiSlave.__init__(self)
-        
         self.dataAccess = RPiGPIOAccess()
         self.dataAccess.registerForSS(None)
         self.protocol = NoSSProtocol( self.dataAccess, self )
         self.protocol.waitForSequence(0b10101010)
-    
-    def __del__(self): pass
 
     def prepareData(self):
         ##self.sendBuffer = 55
@@ -85,14 +82,9 @@ class EchoSlaveNoSS(SpiSlave):
 class EchoSlave(SpiSlave):
     def __init__(self):
         SpiSlave.__init__(self)
-        
         self.dataAccess = RPiGPIOAccess()
         self.protocol = SSProtocol( self.dataAccess, self )
-        
         self.counter = 0
-        
-    
-    def __del__(self): pass
 
     def prepareData(self):
         self.counter += 1

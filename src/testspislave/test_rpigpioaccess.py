@@ -26,7 +26,7 @@ import unittest
 
 imported_gpio = False
 try:
-    from spislave.RPiGPIOAccess import RPiGPIOAccess
+    from spislave.rpigpioaccess import RPiGPIOAccess
     imported_gpio = True
 except ImportError:
     ## ignore error
