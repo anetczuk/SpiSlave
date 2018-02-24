@@ -24,7 +24,7 @@
 
 import unittest
 
-from spislave.SpiDevice import SpiSlave
+from spislave.spidevice import SpiSlave
  
  
 #__scriptdir__ = os.path.dirname(os.path.realpath(__file__))

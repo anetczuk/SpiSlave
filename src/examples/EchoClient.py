@@ -24,7 +24,7 @@
 
 import argparse
 
-from spislave.SpiDevice import SpiSlave
+from spislave.spidevice import SpiSlave
 from spislave.protocol import SSProtocol
 from spislave.protocol import NoSSProtocol
 from spislave.rpigpioaccess import RPiGPIOAccess

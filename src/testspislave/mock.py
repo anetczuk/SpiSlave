@@ -22,7 +22,7 @@
 #
 
 from spislave.pinaccess import PinAccess
-from spislave.SpiDevice import SpiDevice
+from spislave.spidevice import SpiDevice
 
 
 #

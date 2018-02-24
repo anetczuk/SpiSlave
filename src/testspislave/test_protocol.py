@@ -26,8 +26,8 @@ import unittest
 
 from spislave.protocol import SSProtocol
 from spislave.protocol import NoSSProtocol
-from testspislave.Mock import PinAccessMock, SlaveDeviceMock
-from spislave.SpiDevice import SpiSlave
+from testspislave.mock import PinAccessMock, SlaveDeviceMock
+from spislave.spidevice import SpiSlave
  
  
 #__scriptdir__ = os.path.dirname(os.path.realpath(__file__))
