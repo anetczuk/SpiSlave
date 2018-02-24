@@ -123,8 +123,8 @@ class EchoSlave(SpiSlave):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Display internet gallery.')
-    parser.add_argument('--noss', action='store_const', const=True, default=False, help='No SS echo version' )
+    parser = argparse.ArgumentParser(description='Echo slave client example')
+    parser.add_argument('--noss', action='store_const', const=True, default=False, help='No SS echo version - always activated' )
     
     args = parser.parse_args()
     
