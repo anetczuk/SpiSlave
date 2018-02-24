@@ -21,7 +21,7 @@
 # SOFTWARE.
 #
 
-from spislave.PinAccess import PinAccess
+from spislave.pinaccess import PinAccess
 from spislave.SpiDevice import SpiDevice
 
 

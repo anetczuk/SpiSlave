@@ -22,7 +22,7 @@
 #
 
 
-from spislave.PinAccess import PinAccess
+from spislave.pinaccess import PinAccess
 
 import sys, Queue
 
