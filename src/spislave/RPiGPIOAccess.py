@@ -55,7 +55,7 @@ class RPiGPIOAccess(PinAccess):
     def __init__(self):
         self.sckCallback = None
         self.ssCallback = None
-        self.bucket = Queue.Queue()
+        self.exceptionQueue = Queue.Queue()
         GPIO.add_event_detect(PIN_SCK, GPIO.BOTH, callback=self.clock_tick)
         GPIO.add_event_detect(PIN_SS, GPIO.BOTH, callback=self.slave_tick)
         self.enabled = False
@@ -67,7 +67,7 @@ class RPiGPIOAccess(PinAccess):
         try:
             return GPIO.input(PIN_DI)
         except:
-            self.bucket.put(sys.exc_info())
+            self.exceptionQueue.put(sys.exc_info())
 
     def writeDO(self, value): 
         return GPIO.output(PIN_DO, value)
@@ -82,7 +82,7 @@ class RPiGPIOAccess(PinAccess):
     ### ================================================================
     
     def getException(self, accessTimeout=1000):
-        return self.bucket.get( timeout=accessTimeout )
+        return self.exceptionQueue.get( timeout=accessTimeout )
 
     def clock_tick(self, channel):
         if not (self.enabled is True):
@@ -107,13 +107,13 @@ class RPiGPIOAccess(PinAccess):
         try:
             return GPIO.input(PIN_SCK)
         except:
-            self.bucket.put(sys.exc_info())
+            self.exceptionQueue.put(sys.exc_info())
             
     def readSS(self): 
         try:
             return GPIO.input(PIN_SS)
         except:
-            self.bucket.put(sys.exc_info())
+            self.exceptionQueue.put(sys.exc_info())
 
     
     @classmethod
