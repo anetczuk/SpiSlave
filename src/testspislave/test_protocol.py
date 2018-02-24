@@ -24,8 +24,8 @@
 
 import unittest
 
-from spislave.Protocol import SSProtocol
-from spislave.Protocol import NoSSProtocol
+from spislave.protocol import SSProtocol
+from spislave.protocol import NoSSProtocol
 from testspislave.Mock import PinAccessMock, SlaveDeviceMock
 from spislave.SpiDevice import SpiSlave
  

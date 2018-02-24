@@ -25,8 +25,8 @@
 import argparse
 
 from spislave.SpiDevice import SpiSlave
-from spislave.Protocol import SSProtocol
-from spislave.Protocol import NoSSProtocol
+from spislave.protocol import SSProtocol
+from spislave.protocol import NoSSProtocol
 from spislave.RPiGPIOAccess import RPiGPIOAccess
 
 import Queue
