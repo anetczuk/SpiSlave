@@ -44,4 +44,4 @@ Unit tests can be run by _test_runner.py_ script. No _GPIO_ module needed.
 ### References
 
 * https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus - description of SPI bus,
-* Python Spidev - _Python bindings for Linux SPI access through spidev_, **master mode only**
+* [Python Spidev](https://pypi.python.org/pypi/spidev) - _Python bindings for Linux SPI access through spidev_, **master mode only**
