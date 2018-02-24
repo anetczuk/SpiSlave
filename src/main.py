@@ -56,7 +56,7 @@ PIN_DO=10       ## M0SI-GPIO10 (pin19)
 PIN_SS=22       ## GPIO12      (pin15)
 
 
-bucket = Queue.Queue()
+exceptionQueue = Queue.Queue()
 
 
 
@@ -130,7 +130,7 @@ class SpiSlave(object):
     ## Define a threaded callback function to run in another thread when events are detected  
     def clock_tick(self, channel):
         ## Needed to modify global copy of globvar
-        global bucket
+        global exceptionQueue
         
         try:
             self.pinSCK = GPIO.input(PIN_SCK)
@@ -153,7 +153,7 @@ class SpiSlave(object):
             self.receiveBuffer = 0
 
         except:
-            bucket.put(sys.exc_info())
+            exceptionQueue.put(sys.exc_info())
     
 
     def handleUnknownState(self):
@@ -179,7 +179,7 @@ class SpiSlave(object):
         
     def slave_tick(self, channel):
         ## Needed to modify global copy of globvar
-        global bucket
+        global exceptionQueue
         
         try:
             pinSS = GPIO.input(PIN_SS)
@@ -187,7 +187,7 @@ class SpiSlave(object):
                 return
             self.slaveSelected()
         except:
-            bucket.put(sys.exc_info())
+            exceptionQueue.put(sys.exc_info())
 
         
         
@@ -214,8 +214,8 @@ try:
     while True:
         ## handle callback exceptions
         try:
-            ##exc = bucket.get(block=False)
-            exc = bucket.get(timeout=1000)
+            ##exc = exceptionQueue.get(block=False)
+            exc = exceptionQueue.get(timeout=1000)
         except Queue.Empty:
             ## timeout
             pass
