@@ -80,6 +80,9 @@ class RPiGPIOAccess(PinAccess):
         
 
     ### ================================================================
+    
+    def getException(self, accessTimeout=1000):
+        return self.bucket.get( timeout=accessTimeout )
 
     def clock_tick(self, channel):
         if not (self.enabled is True):

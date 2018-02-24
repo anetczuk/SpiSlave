@@ -65,7 +65,7 @@ class EchoSlaveNoSS(SpiSlave):
             ## handle callback exceptions
             try:
                 ##exc = bucket.get(block=False)
-                exc = self.dataAccess.bucket.get(timeout=1000)
+                exc = self.dataAccess.getException(1000)
             except Queue.Empty:
                 ## timeout
                 pass
@@ -108,7 +108,7 @@ class EchoSlave(SpiSlave):
             ## handle callback exceptions
             try:
                 ##exc = bucket.get(block=False)
-                exc = self.dataAccess.bucket.get(timeout=1000)
+                exc = self.dataAccess.getException(1000)
             except Queue.Empty:
                 ## timeout
                 pass
