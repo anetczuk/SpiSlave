@@ -24,7 +24,7 @@
 
 import argparse
 
-from spislave.spidevice import SpiSlave
+from spislave.spidevice import SpiDevice
 from spislave.protocol import SSProtocol
 from spislave.protocol import NoSSProtocol
 from spislave.rpigpioaccess import RPiGPIOAccess
@@ -37,9 +37,9 @@ import traceback
 #
 # Echo client handling master without SS line (slave is always activated).
 #
-class EchoSlaveNoSS(SpiSlave):
+class EchoSlaveNoSS(SpiDevice):
     def __init__(self):
-        SpiSlave.__init__(self)
+        SpiDevice.__init__(self)
         self.dataAccess = RPiGPIOAccess()
         self.dataAccess.registerForSS(None)
         self.protocol = NoSSProtocol( self.dataAccess, self )
@@ -79,9 +79,9 @@ class EchoSlaveNoSS(SpiSlave):
 #
 # Echo client handling master
 #
-class EchoSlave(SpiSlave):
+class EchoSlave(SpiDevice):
     def __init__(self):
-        SpiSlave.__init__(self)
+        SpiDevice.__init__(self)
         self.dataAccess = RPiGPIOAccess()
         self.protocol = SSProtocol( self.dataAccess, self )
         self.counter = 0

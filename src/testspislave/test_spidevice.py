@@ -24,7 +24,7 @@
 
 import unittest
 
-from spislave.spidevice import SpiSlave
+from spislave.spidevice import SpiDevice
  
  
 #__scriptdir__ = os.path.dirname(os.path.realpath(__file__))
@@ -35,7 +35,7 @@ from spislave.spidevice import SpiSlave
 #
 #
 #
-class SpiSlaveTest(unittest.TestCase):
+class SpiDeviceTest(unittest.TestCase):
     def setUp(self):
         # Called before execution of each testfunction
         pass
@@ -45,25 +45,25 @@ class SpiSlaveTest(unittest.TestCase):
         pass
 
     def test_default(self):
-        slave = SpiSlave()
+        slave = SpiDevice()
         self.assertEqual( slave.receiveBuffer, 0 )
         self.assertEqual( slave.sendBuffer, 0 )
         self.assertEqual( slave.loadBitIndex, 0 )
 
     def test_activate(self):
-        slave = SpiSlave()
+        slave = SpiDevice()
         slave.activate()
         self.assertEqual( slave.receiveBuffer, 0 )
         self.assertEqual( slave.loadBitIndex, 7 )
         
     def test_deactivate(self):
-        slave = SpiSlave()
+        slave = SpiDevice()
         slave.sendBuffer = 12
         slave.deactivate()
         self.assertEqual( slave.sendBuffer, 0 )
         
     def test_loadBitToSend(self):
-        slave = SpiSlave()
+        slave = SpiDevice()
         slave.activate()
         
         inputBuffer = 0b10100000
@@ -86,7 +86,7 @@ class SpiSlaveTest(unittest.TestCase):
         self.assertEqual( slave.sendBuffer, 0 )
 
     def test_storeReceivedBit(self):
-        slave = SpiSlave()
+        slave = SpiDevice()
         self.assertEqual( slave.receiveBuffer, 0 )
         self.assertEqual( slave.sendBuffer, 0 )
         self.assertEqual( slave.loadBitIndex, 0 )

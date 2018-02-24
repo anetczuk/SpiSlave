@@ -27,7 +27,7 @@ import unittest
 from spislave.protocol import SSProtocol
 from spislave.protocol import NoSSProtocol
 from testspislave.mock import PinAccessMock, SlaveDeviceMock
-from spislave.spidevice import SpiSlave
+from spislave.spidevice import SpiDevice
  
  
 #__scriptdir__ = os.path.dirname(os.path.realpath(__file__))
@@ -157,7 +157,7 @@ class TransmissionTest(unittest.TestCase):
     def setUp(self):
         # Called before execution of each testfunction
         self.dataAccess = PinAccessMock()
-        self.device = SpiSlave()
+        self.device = SpiDevice()
         self.protocol = SSProtocol( self.dataAccess, self.device )
         
     def test_transmission_1(self):        

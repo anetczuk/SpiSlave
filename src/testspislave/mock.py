@@ -22,15 +22,14 @@
 #
 
 from spislave.pinaccess import PinAccess
-from spislave.spidevice import SpiDevice
+from spislave.spidevice import SpiAbstractDevice
 
 
 #
 #
 #
-class SlaveDeviceMock(SpiDevice):
+class SlaveDeviceMock(SpiAbstractDevice):
     def __init__(self):
-        SpiDevice.__init__(self)
         self.activateCounter = 0
         self.deactivateCounter = 0
         self.loadBitToSendCounter = 0

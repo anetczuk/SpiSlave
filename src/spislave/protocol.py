@@ -22,7 +22,7 @@
 #
 
 from spislave.pinaccess import PinAccess
-from spislave.spidevice import SpiDevice
+from spislave.spidevice import SpiAbstractDevice
 
 
 
@@ -38,7 +38,7 @@ class SSProtocol(object):
             self.dataAccess = dataAccessor
             
         if spiDevice is None:
-            self.device = SpiDevice()
+            self.device = SpiAbstractDevice()
         else:
             self.device = spiDevice            
             
@@ -94,7 +94,7 @@ class NoSSProtocol(object):
             self.dataAccess = dataAccessor
             
         if spiDevice is None:
-            self.device = SpiDevice()
+            self.device = SpiAbstractDevice()
         else:
             self.device = spiDevice            
             

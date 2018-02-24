@@ -28,9 +28,9 @@
 
 
 #
-# Upper layer -- above SPI protocol and wiring
+# Abstract SPI device
 #
-class SpiDevice(object):
+class SpiAbstractDevice(object):
 
     def activate(self):
         ## override
@@ -51,9 +51,9 @@ class SpiDevice(object):
 
 
 #
-# Slave is implemented based on https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
+# SPI device
 #
-class SpiSlave(SpiDevice):
+class SpiDevice(SpiAbstractDevice):
     def __init__(self):
         self.receiveBuffer = 0
         self.sendBuffer = 0
